@@ -7,6 +7,7 @@
 				<label class="item item-input item-floating-label">
 					<span class="input-label">First Name</span>
 					<input type="text" placeholder="First Name" ng-model="employee.firstname" required>
+					<span ng-if="newEmployeeForm.employee.firstname.$error.required">{{errors.required}}</span>
 				</label>
 
 				<label class="item item-input item-floating-label">
@@ -16,7 +17,7 @@
 
 				<label class="item item-input item-floating-label">
 					<span class="input-label">Phone</span>
-					<input phone-input type="text" placeholder="Address" ng-model="employee.phone">
+					<input phone-input type="text" placeholder="Phone" maxlength="9" ng-model="employee.phone">
 				</label>
 
 				<label class="item item-input item-floating-label">
@@ -27,6 +28,11 @@
 				<label class="item item-input item-floating-label">
 					<span class="input-label">Address</span>
 					<input type="text" placeholder="Address" ng-model="employee.address">
+				</label>
+
+				<label class="item item-input item-floating-label">
+					<span class="input-label">City</span>
+					<input type="text" placeholder="City" ng-model="employee.city">
 				</label>
 
 				<label class="item item-input">
