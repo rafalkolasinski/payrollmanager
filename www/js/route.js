@@ -2,20 +2,19 @@
 
 angular.module('PayrollManager')
   .config(function ($httpProvider, $stateProvider, $urlRouterProvider) {
-    console.log('asdf')
     //Application routing
     $stateProvider
       .state('main', {
         url: '/main',
         abstract: true,
-        templateUrl: 'main/templates/menu.html',
+        templateUrl: 'templates/menu.html',
         controller: 'MainCtrl'
       })
       .state('main.employees', {
         url: '/employees',
         views: {
           'pageContent': {
-            templateUrl: 'main/templates/employees.html',
+            templateUrl: 'templates/employees.html',
             controller: 'EmployeesCtrl'
           }
         },
@@ -25,7 +24,7 @@ angular.module('PayrollManager')
         url: '/employees/new',
         views: {
           'pageContent': {
-            templateUrl: 'main/templates/newEmployee.html',
+            templateUrl: 'templates/newEmployee.html',
             controller: 'NewEmployeeCtrl'
           }
         },
@@ -35,7 +34,7 @@ angular.module('PayrollManager')
         url: '/employees/detail',
         views: {
           'pageContent': {
-            templateUrl: 'main/templates/employeeDetail.html',
+            templateUrl: 'templates/employeeDetail.html',
             controller: 'EmployeeCtrl'
           }
         },
@@ -45,7 +44,7 @@ angular.module('PayrollManager')
         url: '/history',
         views: {
           'pageContent': {
-            templateUrl: 'main/templates/history.html',
+            templateUrl: 'templates/history.html',
             controller: 'HistoryCtrl'
           }
         },
@@ -55,7 +54,7 @@ angular.module('PayrollManager')
         url: '/settings',
         views: {
           'pageContent': {
-            templateUrl: 'main/templates/settings.html',
+            templateUrl: 'templates/settings.html',
             controller: 'SettingsCtrl'
           }
         },

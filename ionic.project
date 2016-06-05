@@ -1,4 +1,8 @@
 {
-  "name": "PayrollManager_Ionic",
-  "app_id": ""
+  "name": "PayrollManager",
+  "app_id": "",
+  "watchPatterns": [
+    "www/js/*",
+    "!www/css/**/*"
+  ]
 }
