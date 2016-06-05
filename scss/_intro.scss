@@ -74,6 +74,16 @@
 	    position: absolute;
 	    background-color: #F5A503;
 	    bottom: 40px;
+	    transition: all 0.10s ease-out;
+	    &:hover {
+	    	color: $pm_base;
+	    }
+	    &.activated {
+	    	background: none !important;
+	    	color: $pm_accent_two;
+	    	border: 0;
+	    	transition: all 0.10s ease-out;
+	    }
 	}
 }
 

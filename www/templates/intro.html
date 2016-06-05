@@ -55,13 +55,13 @@
 					<span><i class="ion-chevron-right"></i></span>
 				</div>
 			</div> -->
-			<div class="intro-label-three">Enter your name to personalize your application</div>
+			<div class="intro-label-three">Enter your name or company name to personalize your application</div>
 			<form novalidate name="introForm" class="intro-form">
 				<label class="item item-input item-floating-label intro-input">
 					<span class="input-label intro-input-label">Your name:</span>
-					<input class="intro-input-field" name="name" type="text" placeholder="Type your name here..." ng-model="user.name" required>
+					<input class="intro-input-field" name="username" type="text" placeholder="Type your name here..." ng-model="user.username" required>
 				</label>
-				<button class="button button-full button-positive button-start-app" ng-disabled="introForm.user.name.$pristine" on-touch="startApp()">
+				<button class="button button-full button-positive button-start-app" ng-disabled="introForm.username.$invalid" on-touch="startApp()">
 					<span>GET STARTED</span>
 				</button>
 			</form>

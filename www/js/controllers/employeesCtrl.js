@@ -50,12 +50,14 @@ angular.module('PayrollManager')
 
 			$scope.dbkeys.forEach(function(key){
 				var iterator = key;
-				local.getItem(key).then(function(data) {
-					$scope.employees.push(data);
-					console.log("Employees: ", $scope.employees);
-				}).catch(function(err) {
-					console.log('Couldn\'t get DB data for this key.', err);
-				})
+				if(iterator !== 'username' && iterator !== 'initials') {
+					local.getItem(key).then(function(data) {
+						$scope.employees.push(data);
+						console.log("Employees: ", $scope.employees);
+					}).catch(function(err) {
+						console.log('Couldn\'t get DB data for this key.', err);
+					})
+				}
 			})
 		}).catch(function(err) {
 			console.log('Couldn\'t get DB keys.', err);

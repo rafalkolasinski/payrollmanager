@@ -1,0 +1,31 @@
+.menu-bar {
+	background-image: none !important;
+}
+
+.user-wrapper {
+	@include flex;
+    @include align-center;
+    padding: 16px;
+    height: 100px;
+    border: 0;
+    background-color: $pm_accent_two;
+	.user-avatar {
+		@include flex;
+		@include align-center;
+		@include justify-center;
+		border-radius: 50%;
+		height: 50px;
+		width: 50px;
+	    background-color: $pm_white;
+	    margin-right: 16px;
+	    .user-avatar-label {
+	    	font-size: 18px;
+	    	color: $pm_accent_two;
+	    }
+	}
+	.user-personal-data {
+		h2 {
+			color: $pm_white;
+		}
+	}
+}
