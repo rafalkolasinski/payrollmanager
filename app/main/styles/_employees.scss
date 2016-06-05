@@ -1,0 +1,47 @@
+.button-new-employee {
+    @include flex;
+    @include align-center;
+    @include justify-center;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    margin: 30px;
+    border-radius: 50%;
+    background-color: $pm_accent;
+    height: 50px;
+    width: 50px;
+    border: 0;
+    color: $pm_white;
+    font-size: 19px;
+    padding: 0;
+    box-shadow: 0px 2px 5px #AAAAAA;
+}
+
+.employee-wrapper {
+	@include flex;
+	@include align-center;
+	padding: 0;
+	.item-content {
+	    @include flex;
+	    @include align-center;
+	    padding: 16px;
+	    width: 100%;
+		.employee-avatar {
+			@include flex;
+			@include align-center;
+			@include justify-center;
+			border-radius: 50%;
+			height: 50px;
+			width: 50px;
+		    background-color: $pm_lightgray;
+		    margin-right: 16px;
+		    .employee-avatar-label {
+		    	font-size: 18px;
+		    	color: $pm_white;
+		    }
+		}
+		.employee-personal-data {
+
+		}
+	}
+}

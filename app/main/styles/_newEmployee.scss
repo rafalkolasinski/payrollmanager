@@ -1,0 +1,17 @@
+.has-button {
+	.list-no-margin {
+		margin: 0;
+	}
+	.error-field {
+		color: $pm_accent;
+		font-size: 12px;
+	}
+	.button-create-employee {
+		margin: 0 !important;
+		background-color: $pm_accent !important;
+		position: absolute;
+		&.activated {
+			border: 0;
+		}
+	}
+}
