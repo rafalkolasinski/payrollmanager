@@ -1,0 +1,95 @@
+.slide-wrapper {
+	padding: 0 !important;
+	background-color: $pm_base !important;
+	color: $pm_white !important;
+	&.slide-one {
+		@include flex;
+		@include align-center;
+		@include justify-center;
+		@include flex-direction-column;
+	}
+	.intro-logo {
+		font-size: 120px;
+		&.margin {
+			margin-bottom: 40px;
+		}
+	}
+	.intro-arrows {
+	    @include flex;
+	    @include justify-space-between;
+	    width: 100%;
+		.intro-arrow-right {
+		    margin: 0px 30px;
+			color: $pm_accent_two;
+		    font-size: 32px;
+		}
+		.intro-arrow-left {
+			@extend .intro-arrow-right;
+			@include justify-flex-start;
+		}
+	}
+	.intro-arrows-single {
+		@extend .intro-arrows;
+		@include justify-flex-end;
+	}
+	.intro-label-one {
+		color: $pm_white;
+	    font-size: 28px;
+	    line-height: 36px;
+	    padding: 0px 100px;
+	}
+	.intro-label-two {
+		@extend .intro-label-one;
+		padding: 0px 20px;
+	    font-size: 24px;
+	}
+	.intro-label-three {
+		@extend .intro-label-one;
+		padding: 0px 40px;
+		margin-bottom: 40px;
+	    font-size: 24px;
+	}
+	.intro-form {
+		width: 100%;
+		.intro-input {
+			border: 0;
+		    border-bottom: 2px solid $pm_accent_two;
+		    width: 100%;
+		    padding: 0px 16px;
+		    .intro-input-label {
+		    	color: $pm_accent_two;
+		    }
+		    .intro-input-field {
+		    	color: $pm_white;
+			    text-align: center;
+			    padding: 0;
+		    }
+		}
+	}
+	.button-start-app {
+		background-color: $pm_accent_two;
+		color: $pm_base;
+	    font-size: 16px;
+	    font-weight: 400;
+	    position: absolute;
+	    background-color: #F5A503;
+	    bottom: 40px;
+	}
+}
+
+.slider {
+  height: 100%;
+	.slider-slide {
+		padding-top: 80px;
+		color: #000;
+		background-color: #fff;
+		text-align: center;
+	}
+}
+
+.slider-pager-page {
+	color: $pm_white !important;
+	&.active {
+		color: $pm_accent_two !important;
+	}
+}

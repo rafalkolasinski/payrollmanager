@@ -4,6 +4,11 @@ angular.module('PayrollManager')
   .config(function ($httpProvider, $stateProvider, $urlRouterProvider) {
     //Application routing
     $stateProvider
+      .state('intro', {
+        url: '/',
+        templateUrl: 'templates/intro.html',
+        controller: 'IntroCtrl'
+      })
       .state('main', {
         url: '/main',
         abstract: true,
@@ -62,5 +67,5 @@ angular.module('PayrollManager')
       });
 
       // ROUTING with ui.router
-      $urlRouterProvider.otherwise('/main/employees');
+      $urlRouterProvider.otherwise('/');
   });

@@ -1,0 +1,71 @@
+<ion-view left-buttons="leftButtons" right-buttons="rightButtons">
+	<ion-slide-box>
+
+		<ion-slide class="slide-wrapper slide-one">
+			<div class="intro-logo">
+				<span><i class="ion-android-people"></i></span>
+			</div>
+			<!-- <div class="intro-arrows-single">
+				<div class="intro-arrow-right">
+					<span><i class="ion-chevron-right"></i></span>
+				</div>
+			</div> -->
+			<div class="intro-label-one">Welcome to Payroll Manager</div>
+		</ion-slide>
+
+		<ion-slide class="slide-wrapper slide-one">
+			<div class="intro-logo margin">
+				<span><i class="ion-clipboard"></i></span>
+			</div>
+			<!-- <div class="intro-arrows">
+				<div class="intro-arrow-right">
+					<span><i class="ion-chevron-left"></i></span>
+				</div>
+				<div class="intro-arrow-right">
+					<span><i class="ion-chevron-right"></i></span>
+				</div>
+			</div> -->
+			<div class="intro-label-two">Payroll Manager lets you create accurate paychecks for employees and contractors</div>
+		</ion-slide>
+
+		<ion-slide class="slide-wrapper slide-one">
+			<div class="intro-logo margin">
+				<span><i class="ion-android-wifi"></i></span>
+			</div>
+			<!-- <div class="intro-arrows">
+				<div class="intro-arrow-right">
+					<span><i class="ion-chevron-left"></i></span>
+				</div>
+				<div class="intro-arrow-right">
+					<span><i class="ion-chevron-right"></i></span>
+				</div>
+			</div> -->
+			<div class="intro-label-two">Notifications remind you on upcoming paychecks and deadlines</div>
+		</ion-slide>
+
+		<ion-slide class="slide-wrapper slide-one">
+			<div class="intro-logo margin">
+				<span><i class="ion-person-add"></i></span>
+			</div>
+			<!-- <div class="intro-arrows">
+				<div class="intro-arrow-right">
+					<span><i class="ion-chevron-left"></i></span>
+				</div>
+				<div class="intro-arrow-right">
+					<span><i class="ion-chevron-right"></i></span>
+				</div>
+			</div> -->
+			<div class="intro-label-three">Enter your name to personalize your application</div>
+			<form novalidate name="introForm" class="intro-form">
+				<label class="item item-input item-floating-label intro-input">
+					<span class="input-label intro-input-label">Your name:</span>
+					<input class="intro-input-field" name="name" type="text" placeholder="Type your name here..." ng-model="user.name" required>
+				</label>
+				<button class="button button-full button-positive button-start-app" ng-disabled="introForm.user.name.$pristine" on-touch="startApp()">
+					<span>GET STARTED</span>
+				</button>
+			</form>
+		</ion-slide>
+
+	</ion-slide-box>
+</ion-view>
