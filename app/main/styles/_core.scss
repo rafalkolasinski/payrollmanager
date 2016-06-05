@@ -1,0 +1,20 @@
+.menu-item {
+	.item-content {
+		@include flex;
+		@include align-center;
+		.menu-icon {
+			font-size: 28px;
+		    margin-right: 10px;
+		}
+	}
+}
+
+.pm-header {
+	background-color: $pm_base !important;
+	h1 {
+		color: white;
+	}
+	.button-reorder {
+		font-size: 21px !important;
+	}
+}

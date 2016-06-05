@@ -4,17 +4,13 @@
   <ion-side-menu-content>
 
     <!-- header bar -->
-    <!-- the nav bar will be updated as we navigate between views -->
-    <ion-nav-bar class="bar-calm">
+    <ion-nav-bar class="bar-calm pm-header">
       <!-- back button, shown if applicable -->
       <ion-nav-back-button>
       </ion-nav-back-button>
-      <!-- nav button, shown if applicable -->
-      <ion-nav-buttons side="left">
-        <button class="button button-icon button-clear ion-navicon" menu-toggle="left">
-        </button>
-      </ion-nav-buttons>
     </ion-nav-bar>
+    <!-- the nav bar will be updated as we navigate between views -->
+    
 
     <!-- ROUTING INJECTED HERE: pageContent -->
     <ion-nav-view name="pageContent"></ion-nav-view>
@@ -25,21 +21,24 @@
   <ion-side-menu side="left">
 
     <!-- menu header -->
-    <ion-header-bar class="bar-calm">
+    <ion-header-bar class="pm-header">
       <h1 class="title">USERNAME will be here</h1>
     </ion-header-bar>
 
     <!-- menu content -->
     <ion-content>
       <ion-list>
-        <ion-item menu-close ui-sref="main.employees">
-          Employees
+        <ion-item class="menu-item" menu-close ui-sref="main.employees">
+          <span class="menu-icon"><i class="ion-android-people"></i></span>
+          <span>Employees</span>
         </ion-item>
-        <ion-item menu-close ui-sref="main.history">
-          History
+        <ion-item class="menu-item" menu-close ui-sref="main.history">
+          <span class="menu-icon"><i class="ion-android-time"></i></span>
+          <span>History</span>
         </ion-item>
-        <ion-item menu-close ui-sref="main.settings">
-          Settings
+        <ion-item class="menu-item" menu-close ui-sref="main.settings">
+          <span class="menu-icon"><i class="ion-settings"></i></span>
+          <span>Settings</span>
         </ion-item>
       </ion-list>
     </ion-content>

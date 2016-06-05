@@ -1,71 +1,88 @@
-<ion-view view-title="NewEmployee">
-	<ion-content>
+<ion-view view-title="New employee">
+
+	<ion-nav-bar class="bar-calm pm-header">
+      <!-- back button, shown if applicable -->
+      <ion-nav-back-button>
+      </ion-nav-back-button>
+      <!-- nav button, shown if applicable -->
+      <ion-nav-buttons side="left">
+        <button class="button button-icon button-clear ion-navicon" menu-toggle="left">
+        </button>
+      </ion-nav-buttons>
+    </ion-nav-bar>
+
+	<ion-content class="has-button">
 
 		<!-- content goes here -->
-		<form name="newEmployeeForm">
-			<div class="list">
+		<form novalidate name="newEmployeeForm">
+			<div class="list list-no-margin">
 				<label class="item item-input item-floating-label">
 					<span class="input-label">First Name</span>
-					<input type="text" placeholder="First Name" ng-model="employee.firstname" required>
-					<span ng-if="newEmployeeForm.employee.firstname.$error.required">{{errors.required}}</span>
+					<input name="firstname" type="text" placeholder="First Name" ng-model="employee.firstname" required>
+					<span class="error-field" ng-if="newEmployeeForm.firstname.$dirty && newEmployeeForm.firstname.$invalid">{{errors.required}}</span>
 				</label>
 
 				<label class="item item-input item-floating-label">
 					<span class="input-label">Last Name</span>
-					<input type="text" placeholder="Last name" ng-model="employee.lastname" required>
+					<input name="lastname" type="text" placeholder="Last name" ng-model="employee.lastname" required>
+					<span class="error-field" ng-if="newEmployeeForm.lastname.$dirty && newEmployeeForm.lastname.$invalid">{{errors.required}}</span>
 				</label>
 
 				<label class="item item-input item-floating-label">
 					<span class="input-label">Phone</span>
-					<input phone-input type="text" placeholder="Phone" maxlength="9" ng-model="employee.phone">
+					<input name="phone" phone-input type="text" placeholder="Phone" maxlength="9" ng-model="employee.phone" required>
+					<span class="error-field" ng-if="newEmployeeForm.phone.$dirty && newEmployeeForm.phone.$invalid">{{errors.required}}</span>
 				</label>
 
 				<label class="item item-input item-floating-label">
 					<span class="input-label">Email</span>
-					<input type="email" placeholder="Email" ng-model="employee.email">
+					<input name="email" type="email" placeholder="Email" ng-model="employee.email" required>
+					<span class="error-field" ng-if="newEmployeeForm.email.$dirty && !newEmployeeForm.email.$required && newEmployeeForm.email.$invalid">{{errors.email}}</span>
 				</label>
 
 				<label class="item item-input item-floating-label">
 					<span class="input-label">Address</span>
-					<input type="text" placeholder="Address" ng-model="employee.address">
+					<input name="address" type="text" placeholder="Address" ng-model="employee.address" required>
+					<span class="error-field" ng-if="newEmployeeForm.address.$dirty && newEmployeeForm.address.$invalid">{{errors.required}}</span>
 				</label>
 
 				<label class="item item-input item-floating-label">
 					<span class="input-label">City</span>
-					<input type="text" placeholder="City" ng-model="employee.city">
+					<input name="city" type="text" placeholder="City" ng-model="employee.city" required>
+					<span class="error-field" ng-if="newEmployeeForm.city.$dirty && newEmployeeForm.city.$invalid">{{errors.required}}</span>
 				</label>
 
 				<label class="item item-input">
 					<div class="input-label">
 						Birthday
 					</div>
-					<input type="date" id="exampleInput" name="date" ng-model="employee.birthday" placeholder="yyyy-MM-dd" min="2013-01-01" max="2013-12-31" required/>
+					<input name="birthday" type="date" id="exampleInput" name="date" ng-model="employee.birthday" placeholder="yyyy-MM-dd" min="1900-01-01" max="{{maxDate}}"/>
 				</label>
 
-				<label class="item item-input item-select" required>
+				<label class="item item-input item-select">
 					<div class="input-label">
 						Country
 					</div>
-					<select name="gender" ng-model="employee.country" required>
+					<select name="gender" ng-model="employee.country">
 						<option value="uk">UK</option>
 						<option value="usa">USA</option>
 						<option value="pl">PL</option>
 					</select>
 				</label>
 
-				<label class="item item-input item-select" required>
+				<label class="item item-input item-select">
 					<div class="input-label">
 						Gender
 					</div>
-					<select name="gender" ng-model="employee.gender" required>
+					<select name="gender" ng-model="employee.gender">
 						<option value="male">Male</option>
 						<option value="female">Female</option>
 					</select>
 				</label>
 
 			</div>
-			<button class="button button-full button-positive" on-touch="createNewEmployee()">
-			  Create new employee
+			<button class="button button-full button-positive button-create-employee" ng-disabled="newEmployeeForm.$invalid" on-touch="createNewEmployee()">
+			  <span>Create new employee</span>
 			</button>
 		</form>
 

@@ -18,7 +18,8 @@ angular.module('PayrollManager')
             templateUrl: 'main/templates/employees.html',
             controller: 'EmployeesCtrl'
           }
-        }
+        },
+        cache: false
       })
       .state('main.newEmployee', {
         url: '/employees/new',
@@ -27,7 +28,8 @@ angular.module('PayrollManager')
             templateUrl: 'main/templates/newEmployee.html',
             controller: 'NewEmployeeCtrl'
           }
-        }
+        },
+        cache: false
       })
       .state('main.employeeDetail', {
         url: '/employees/detail',
@@ -36,7 +38,8 @@ angular.module('PayrollManager')
             templateUrl: 'main/templates/employeeDetail.html',
             controller: 'EmployeeCtrl'
           }
-        }
+        },
+        cache: false
       })
       .state('main.history', {
         url: '/history',
@@ -45,7 +48,8 @@ angular.module('PayrollManager')
             templateUrl: 'main/templates/history.html',
             controller: 'HistoryCtrl'
           }
-        }
+        },
+        cache: false
       })
       .state('main.settings', {
         url: '/settings',
@@ -54,7 +58,8 @@ angular.module('PayrollManager')
             templateUrl: 'main/templates/settings.html',
             controller: 'SettingsCtrl'
           }
-        }
+        },
+        cache: false
       });
 
       // ROUTING with ui.router

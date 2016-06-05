@@ -1,20 +1,51 @@
 <ion-view view-title="Employees">
+
+  <ion-nav-bar class="bar-calm pm-header">
+    <!-- back button, shown if applicable -->
+    <ion-nav-back-button>
+    </ion-nav-back-button>
+    <!-- nav button, shown if applicable -->
+    <ion-nav-buttons side="left">
+      <button class="button button-icon button-clear ion-navicon" menu-toggle="left">
+      </button>
+    </ion-nav-buttons>
+    <ion-nav-buttons side="right">
+      <button class="button button-icon button-clear button-reorder" ng-click="editList()">
+        <span><i class="ion-android-done"></i></span>
+      </button>
+    </ion-nav-buttons>
+  </ion-nav-bar>
+
   <ion-content>
 
     <!-- content goes here -->
-    <ion-list>
-      <ion-item
-        class="item-remove-animate item-avatar item-icon-right"
-        type="item-text-wrap"
-        ui-sref="main.employeeDetail">
-        <img src="main/assets/images/yo@2x.png">
-        <h2>Mr. Yo</h2>
-        <p>Learn more...</p>
-        <i class="icon ion-chevron-right icon-accessory"></i>
+    <ion-list show-reorder="reorder" show-delete="delete">
+      <ion-item employee="employee" href="#/employees/{{employee.id}}" class="item item-avatar employee-wrapper" ng-repeat="employee in employees">
+
+        <div class="employee-avatar">
+          <span class="employee-avatar-label">
+            {{employee.firstname | firstLetter}}{{employee.lastname | firstLetter}}
+          </span>
+        </div>
+        <div class="employee-personal-data">
+          <h2>{{employee.firstname}}&nbsp;{{employee.lastname}}</h2>
+          <p>
+            <span><i class="ion-android-mail"></i></span>
+            <span>{{employee.email}}</span>
+          </p>
+          <p>
+            <span><i class="ion-android-phone-portrait"></i></span>
+            <span>{{employee.phone}}</span>
+          </p>
+        </div>
+        <ion-delete-button class="ion-minus-circled" ng-click="deleteItem($index)"></ion-delete-button>
+        <ion-reorder-button class="ion-navicon" on-reorder="moveItem(employee, $fromIndex, $toIndex)"></ion-reorder-button>
+
       </ion-item>
     </ion-list>
-
-  <button ui-sref="main.newEmployee">New employee</button>
-
   </ion-content>
+
+  <button class="button-new-employee" ui-sref="main.newEmployee">
+    <span><i class="ion-android-add"></i></span>
+  </button>
 </ion-view>
