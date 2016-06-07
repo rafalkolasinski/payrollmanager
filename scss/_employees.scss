@@ -1,3 +1,20 @@
+.list-empty {
+    @include flex;
+    @include align-center;
+    @include justify-center;
+    @include flex-direction-column;
+    height: 100vh;
+    color: $pm_gray;
+    p {
+    	text-align: center;
+    	line-height: 25px;
+    }
+    .list-empty-icon {
+    	color: $pm_gray;
+    	font-size: 42px;
+    }
+}
+
 .button-new-employee {
     @include flex;
     @include align-center;
@@ -44,4 +61,88 @@
 
 		}
 	}
+	.item-content {
+		border: 0;
+	}
+}
+
+/*
+* EMPLOYEE DETAIL
+*/
+// .detail-header {
+	.detail-name {
+		@include flex;
+		@include justify-center;
+		@include align-center;
+		height: 100px;
+	    font-size: 26px;
+	    padding: 20px;
+	    background-color: $pm_white;
+	    color: $pm_accent_two;
+	    padding: 20px;
+	    border-left: 5px solid $pm_accent_two;
+	}
+	.detail-attributes-top,
+	.detail-attributes-bottom, {
+		&:first-child {
+			border-bottom: 1px solid $pm_gray;
+		}
+		.detail-attribute-wrapper {
+		    height: 60px;
+		    @include flex;
+		    @include align-center;
+		    font-size: 16px;
+		    border-bottom: 1px solid $pm_white;
+		    .detail-icon {
+			    @include flex;
+				@include justify-center;
+				@include align-center;
+			    height: 100%;
+			    width: 65px;
+			    font-size: 21px;
+			    color: $pm_accent;
+			    border-left: 5px solid $pm_accent;
+			    &.top {
+			    	border: 0;
+			    	width: 60px;
+			    	color: $pm_white;
+			    	background-color: $pm_accent;
+			    }
+			}
+			.detail-label {
+				@include flex;
+				@include align-center;
+				background-color: $pm_lightwhite;
+				padding-left: 16px;
+			    height: 100%;
+		        width: calc(100vw - 65px);
+			    font-size: 16px;
+			    color: $pm_base;
+		        border-left: 1px solid $pm_lightgray;
+		        &.top {
+			        width: calc(100vw - 60px);
+		        }
+			}
+			.detail-label-minor {
+				@include flex;
+				@include justify-center;
+				@include align-center;
+				height: 60px;
+				width: 100%;
+			    font-size: 18px;
+			    padding: 20px;
+			    background-color: $pm_white;
+			    color: $pm_accent_two;
+			    padding: 20px;
+	    		border-left: 5px solid $pm_accent_two;
+			}
+		}
+	}
+// }
+
+.detail-chart {
+	@include flex;
+	@include align-center;
+	@include justify-center;
+	height: 200px;
 }

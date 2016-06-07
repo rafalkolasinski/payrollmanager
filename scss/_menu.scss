@@ -8,7 +8,7 @@
     padding: 16px;
     height: 100px;
     border: 0;
-    background-color: $pm_accent_two;
+    background-color: $pm_accent;
 	.user-avatar {
 		@include flex;
 		@include align-center;
@@ -20,7 +20,7 @@
 	    margin-right: 16px;
 	    .user-avatar-label {
 	    	font-size: 18px;
-	    	color: $pm_accent_two;
+	    	color: $pm_accent;
 	    }
 	}
 	.user-personal-data {

@@ -1,14 +1,71 @@
-<ion-view view-title="EmployeeDetail">
-  <!-- do you want padding -->
-  <ion-content class="padding">
+<ion-view view-title="Employee detail">
 
-    <!-- content goes here -->
-    <img ng-src="main/assets/images/yo@2x.png" style="width: 64px; height: 64px">
-    <p>
-      Hello My Name is Yo!<br>
-      I scaffold apps.<br>
-      And I'm really good at it.
-    </p>
+  <ion-nav-bar class="bar-calm pm-header">
+    <!-- back button, shown if applicable -->
+    <ion-nav-back-button>
+    </ion-nav-back-button>
+    <!-- nav button, shown if applicable -->
+    <ion-nav-buttons side="left">
+      <button class="button button-icon button-clear ion-navicon" menu-toggle="left">
+      </button>
+    </ion-nav-buttons>
+    <!-- <ion-nav-buttons side="right">
+      <button class="button button-icon button-clear button-reorder" ng-click="editList()">
+        <span><i class="ion-android-done"></i></span>
+      </button>
+    </ion-nav-buttons> -->
+  </ion-nav-bar>
+
+  <!-- do you want padding -->
+  <ion-content class="">
+    
+    <div class="employee-detail-wrapper">
+        <div class="detail-header">
+          <div class="detail-name">
+            {{employeeData.firstname | uppercase}}&nbsp;{{employeeData.lastname | uppercase}}
+          </div>
+          <div class="detail-attributes-top">
+            <div class="detail-attribute-wrapper">
+              <div class="detail-icon top"><i class="ion-android-mail"></i></div>
+              <div class="detail-label top">{{employeeData.email}}</div>
+            </div>
+            <div class="detail-attribute-wrapper">
+              <div class="detail-icon top"><i class="ion-android-phone-portrait"></i></div>
+              <div class="detail-label top">{{employeeData.phone}}</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="detail-chart">
+          Recent payroll history (chart) will probably be here.
+        </div>
+        
+        <div class="detail-attributes-top">
+          <div class="detail-attribute-wrapper">
+            <div class="detail-label-minor">{{strings.PERSONAL_DATA | uppercase}}</div>
+          </div>
+          <div class="detail-attribute-wrapper">
+            <div class="detail-icon"><i class="ion-home"></i></div>
+            <div class="detail-label">{{employeeData.address}}</div>
+          </div>
+          <div class="detail-attribute-wrapper">
+            <div class="detail-icon"><i class="ion-android-map"></i></div>
+            <div class="detail-label">{{employeeData.city}}</div>
+          </div>
+          <div class="detail-attribute-wrapper">
+            <div class="detail-icon"><i class="ion-calendar"></i></div>
+            <div class="detail-label">{{employeeData.birthday | date:shortDate}}</div>
+          </div>
+          <div class="detail-attribute-wrapper">
+            <div class="detail-icon"><i class="ion-earth"></i></div>
+            <div class="detail-label">{{employeeData.country | uppercase}}</div>
+          </div>
+          <div class="detail-attribute-wrapper">
+            <div class="detail-icon"><i class="ion-social-usd"></i></div>
+            <div class="detail-label">{{employeeData.payment | capitalize}}</div>
+          </div>
+        </div>
+    </div>
 
   </ion-content>
 </ion-view>

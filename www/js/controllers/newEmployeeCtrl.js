@@ -10,8 +10,8 @@ angular.module('PayrollManager')
 		country: 	'',
 		email: 		'',
 		firstname: 	'',
-		gender: 	'',
 		lastname: 	'',
+		payment: 	'',
 		phone: 		'',
 		payrolls: 	[]
 	};

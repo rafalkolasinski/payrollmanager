@@ -1,9 +1,11 @@
-$pm_white:			#FAFAFA !default;
+$pm_white:			#FDFDFD !default;
+$pm_lightwhite:     #EAEAEA !default;
 $pm_lightgray:		#DDDDDD !default;
+$pm_gray:           #CACACA !default;
 $pm_mediumgray:     #ABABAB !default;
-$pm_base:			#2C3E50 !default;
-$pm_accent:         #F2385A !default;
-$pm_accent_two:     #F5A503 !default;
+$pm_base:			#21192E !default;
+$pm_accent:         #36B1BF !default;
+$pm_accent_two:     #FBB100 !default;
 
 @mixin flex() {
 	display: -webkit-box;

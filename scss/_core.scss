@@ -1,4 +1,13 @@
+.view-container {
+	font-family: $font-family-base;
+}
+
+.scroll {
+	background-color: $pm_white;
+}
+
 .menu-item {
+	border: 0;
 	.item-content {
 		@include flex;
 		@include align-center;
@@ -6,6 +15,15 @@
 			font-size: 28px;
 		    margin-right: 10px;
 		}
+	}
+	&.active {
+	    border: 0;
+		border-left: 5px solid $pm_accent;
+	    background-color: $pm_white !important;
+	    color: $pm_accent;
+	    .item-content {
+	    	background-color: $pm_white !important;
+	    }
 	}
 }
 

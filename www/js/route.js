@@ -7,7 +7,8 @@ angular.module('PayrollManager')
       .state('intro', {
         url: '/',
         templateUrl: 'templates/intro.html',
-        controller: 'IntroCtrl'
+        controller: 'IntroCtrl',
+        cache: false
       })
       .state('main', {
         url: '/main',
@@ -36,7 +37,7 @@ angular.module('PayrollManager')
         cache: false
       })
       .state('main.employeeDetail', {
-        url: '/employees/detail',
+        url: '/employees/:employeeId',
         views: {
           'pageContent': {
             templateUrl: 'templates/employeeDetail.html',

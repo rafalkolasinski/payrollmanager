@@ -10,7 +10,7 @@ angular.module('PayrollManager', [
   ])
 
   //configuring localForage plugin
-  .config(['$localForageProvider', function($localForageProvider){
+  .config(['$ionicConfigProvider', '$localForageProvider', function($ionicConfigProvider, $localForageProvider){
     $localForageProvider.config({
         driver      : 'localStorageWrapper',
         name        : 'pm',
@@ -18,6 +18,8 @@ angular.module('PayrollManager', [
         storeName   : 'employees',
         description : 'Employees DB with personal info and recent payroll history.'
     })
+
+    $ionicConfigProvider.backButton.previousTitleText(false).text('');
   }])
 
   .run(function ($rootScope, $ionicPlatform) {

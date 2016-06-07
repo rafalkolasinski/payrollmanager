@@ -37,14 +37,13 @@ angular.module('PayrollManager')
 			}).catch(function(err) {
 				console.log('Couldn\'t save initials.', err);
 			});
+
+			// Set a flag that tutorial is finished
+			window.localStorage['didTutorial'] = true;
 		}
 
 		//redirecting to main state
-		$location.path('main/employees');
-
-		// Set a flag that tutorial is finished
-		window.localStorage['didTutorial'] = true;
-
+		$location.path('/main/employees');
 	};
 
 	// Check if the user already did the tutorial and skip it if so
