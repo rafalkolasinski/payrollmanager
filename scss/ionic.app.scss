@@ -11,7 +11,7 @@ $positive:                        #387ef5 !default;
 $calm:                            #11c1f3 !default;
 $balanced:                        #33cd5f !default;
 $energized:                       #ffc900 !default;
-$assertive:                       #ef473a !default;
+$assertive:                       #FBB100 !default;
 $royal:                           #886aea !default;
 $dark:                            #444 !default;
 
@@ -26,6 +26,7 @@ $font-family-base: "Roboto", sans-serif !default;
 @import '_variables';
 @import '_intro';
 @import '_core';
+@import '_settings';
 @import '_menu';
 @import '_employees';
 @import '_newEmployee';

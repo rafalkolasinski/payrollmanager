@@ -1,3 +1,34 @@
+/*
+* EMPLOYEES LIST
+*/
+.has-subheader-wide {
+	top: 132px;
+}
+
+.bar-subheader-wide {
+	height: 88px;
+}
+
+.employees-subheader {
+	@include flex;
+	@include flex-direction-column;
+	padding: 0;
+	.employees-length {
+		@include flex;
+		@include justify-center;
+		@include align-center;
+		height: 44px;
+		width: 100%;
+		color: $pm_base;
+		background: none;
+		background-color: $pm_lightwhite;
+	}
+	.employees-filter {
+		background-color: $pm_white;
+		border-bottom: 5px solid $pm_accent;
+	}
+}
+
 .list-empty {
     @include flex;
     @include align-center;

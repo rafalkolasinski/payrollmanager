@@ -1,0 +1,63 @@
+.settings-container-wrapper {
+	padding: 0;
+	@include flex;
+	@include align-center;
+	.settings-container {
+		padding: 16px !important;
+		width: calc(100vw - 54px);
+	}
+	.settings-icon {
+		@include flex;
+		@include align-center;
+		@include justify-center;
+		height: 100%;
+		width: 54px;
+		height: 54px;
+		color: $pm_white;
+		font-size: 21px;
+		background-color: $pm_accent_two;
+		&:active, &:focus {
+			background-color: $pm_white;
+			color: $pm_accent_two;
+		}
+	}
+}
+
+.button-cancel {
+	background-color: $pm_lightgray;
+	border: 0;
+	border-left: 5px solid $pm_accent;
+}
+
+.button-set {
+	background-color: $pm_accent_two;
+	color: $pm_white;
+}
+
+.username-input {
+	border: 0;
+    border-bottom: 2px solid $pm_accent_two;
+    width: 100%;
+    padding: 0px 16px;
+    margin: 20px 0px 40px 0px;
+    .username-input-label {
+    	color: $pm_accent_two;
+    }
+    .username-input-field {
+    	color: $pm_gray;
+	    text-align: center;
+	    padding: 0;
+    }
+}
+
+.item-currency {
+	height: 54px;
+	padding: 0;
+	.currency-form {
+		height: 100%;
+		.currency-label {
+			height: 100%;
+			border: 0;
+		}
+	}
+}

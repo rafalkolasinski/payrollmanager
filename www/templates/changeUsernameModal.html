@@ -1,0 +1,23 @@
+<ion-modal-view>
+  <ion-header-bar class="bar bar-header pm-header">
+    <h1 class="title">Change username</h1>
+  </ion-header-bar>
+  <ion-content>
+    <div class="list">
+
+    <form name="newUsernameForm">
+      <label class="item item-input item-floating-label username-input">
+        <span class="input-label  username-input-label">New username</span>
+        <input class="username-input-field" name="newUsername" ng-model="userInfo.newUsername" type="text" placeholder="New username" required>
+      </label>
+      <button class="button button-full button-cancel" ng-click="hideModal(username)">
+        Cancel
+      </button>
+      <button class="button button-full button-set" ng-click="changeUsername()" ng-disabled="newUsernameForm.newUsername.$error.required">
+        Set username
+      </button>
+    </form>
+    
+    </div>
+  </ion-content>
+</ion-modal-view>

@@ -16,7 +16,18 @@
     </ion-nav-buttons>
   </ion-nav-bar>
 
-  <ion-content>
+  <ion-header-bar class="bar bar-subheader bar-subheader-wide employees-subheader" ng-if="employees.length > 0">
+    <div class="employees-length">
+      <span>You currently have {{employees.length}} employee<span ng-if="employees.length > 1">s</span>.</span>
+    </div>
+    <div>
+      <label class="item item-input employees-filter">
+        <input type="text" placeholder="Search by keywords or personal data..." ng-model="$parent.keywords">
+      </label>
+    </div>
+  </ion-header-bar>
+
+  <ion-content ng-class="{'has-subheader-wide': employees.length > 0}">
     <div class="list-empty" ng-if="employees.length === 0">
       <div><i class="ion-android-person-add list-empty-icon"></i></div>
       <p>Your employees list is empty.<br />Press the floating button to add new employee.</p>
@@ -24,7 +35,7 @@
 
     <!-- content goes here -->
     <ion-list show-reorder="reorder" show-delete="delete" ng-if="employees.list !== 0">
-      <ion-item employee="employee" ui-sref="main.employeeDetail({employeeId: employee.id})" class="item item-avatar employee-wrapper" ng-repeat="employee in employees">
+      <ion-item employee="employee" ui-sref="main.employeeDetail({employeeId: employee.id})" class="item item-avatar employee-wrapper" ng-repeat="employee in employees | filter:keywords">
 
         <div class="employee-avatar">
           <span class="employee-avatar-label">

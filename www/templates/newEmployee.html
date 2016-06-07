@@ -63,7 +63,7 @@
 					<div class="input-label">
 						Country
 					</div>
-					<select name="gender" ng-model="employee.country">
+					<select name="country" ng-model="employee.country">
 						<option value="uk">UK</option>
 						<option value="usa">USA</option>
 						<option value="pl">PL</option>
@@ -74,10 +74,11 @@
 					<div class="input-label">
 						Payment type
 					</div>
-					<select name="payment" ng-model="employee.payment">
+					<select name="payment" ng-model="employee.payment" required>
 						<option value="salary">Salary</option>
 						<option value="hourly">Hourly</option>
 					</select>
+					<span class="error-field" ng-if="newEmployeeForm.payment.$dirty && newEmployeeForm.payment.$invalid">{{errors.required}}</span>
 				</label>
 
 			</div>

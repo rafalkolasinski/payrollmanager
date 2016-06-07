@@ -1,0 +1,25 @@
+<ion-modal-view>
+  <ion-header-bar class="bar bar-header pm-header">
+    <h1 class="title">Change currency</h1>
+  </ion-header-bar>
+  <ion-content>
+    <div class="list">
+
+    <form name="currencyForm" class="currency-form">
+      <label class="item item-input item-select currency-label">
+        <div class="input-label">
+          Currency
+        </div>
+        <select name="currency" ng-model="currencyInfo.currency" ng-options="currency.value as currency.name for currency in currencies" required></select>
+      </label>
+      <button class="button button-full button-cancel" ng-click="hideModal(currency)">
+        Cancel
+      </button>
+      <button class="button button-full button-set" ng-click="changeCurrency()">
+        Set currency
+      </button>
+    </form>
+
+    </div>
+  </ion-content>
+</ion-modal-view>

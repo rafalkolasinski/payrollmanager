@@ -50,7 +50,7 @@ angular.module('PayrollManager')
 
 			$scope.dbkeys.forEach(function(key){
 				var iterator = key;
-				if(iterator !== 'username' && iterator !== 'initials') {
+				if(iterator !== 'username' && iterator !== 'initials' && iterator !== 'currency') {
 					local.getItem(key).then(function(data) {
 						$scope.employees.push(data);
 						console.log("Employees: ", $scope.employees);
