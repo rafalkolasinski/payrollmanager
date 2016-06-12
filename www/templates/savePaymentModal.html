@@ -1,0 +1,54 @@
+<ion-modal-view>
+	<ion-header-bar class="bar bar-header pm-header">
+		<h1 class="title">Save payment</h1>
+	</ion-header-bar>
+	
+	<ion-content>
+
+		<!-- salary = rate x hours - (salary x all contributions) -->
+		<ion-list>
+			<div class="list payment-details">
+				<ion-item class="payment-detail-item">
+					<!-- <div class="payment-employee">
+						{{employeeData.firstname}}&nbsp;{{employeeData.lastname}}
+					</div> -->
+					<div class="detail-attribute-wrapper">
+			        	<div class="detail-icon"><i class="ion-android-person"></i></div>
+			        	<div class="detail-label">{{employeeData.firstname}}&nbsp;{{employeeData.lastname}}</div>
+			        </div>
+				</ion-item>
+				<ion-item class="payment-detail-item">
+					<!-- <div class="payment-date">
+						{{payment.date}}
+					</div> -->
+					<div class="detail-attribute-wrapper">
+			        	<div class="detail-icon"><i class="ion-calendar"></i></div>
+			        	<div class="detail-label">{{payment.date}}</div>
+			        </div>
+				</ion-item>
+				<ion-item class="payment-detail-item">
+					<!-- <div class="payment-total">
+						{{payment.total}}&nbsp;PLN
+					</div> -->
+					<div class="detail-attribute-wrapper">
+			        	<div class="detail-icon"><i class="ion-social-usd"></i></div>
+			        	<div class="detail-label">{{payment.total}}&nbsp;PLN</div>
+			        </div>
+				</ion-item>
+				<ion-item>
+					<div class="payment-question">
+						<span>Do you want to save this payment?</span>
+					</div>
+				</ion-item>
+			</div>
+		</ion-list>
+
+	    <button class="button button-full button-cancel" ng-click="hideModal()">
+			<span>Cancel</span>
+		</button>
+		<button class="button button-full button-save" ng-click="savePayment()">
+			<span>Save payment</span>
+		</button>
+
+	</ion-content>
+</ion-modal-view>

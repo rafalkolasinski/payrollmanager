@@ -32,6 +32,15 @@
 .button-set {
 	background-color: $pm_accent_two;
 	color: $pm_white;
+	&.detail {
+		margin: 0px 0px 16px 0px;
+		background-color: $pm_accent;
+		&.activated {
+			background-color: $pm_white;
+			color: $pm_accent;
+			border: 0;
+		}
+	}
 }
 
 .username-input {

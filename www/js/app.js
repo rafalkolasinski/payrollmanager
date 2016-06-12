@@ -6,7 +6,8 @@
 // 'starter.controllers' is found in controllers.js
 angular.module('PayrollManager', [
   'ionic',
-  'LocalForageModule'
+  'LocalForageModule',
+  'chart.js'
   ])
 
   //configuring localForage plugin

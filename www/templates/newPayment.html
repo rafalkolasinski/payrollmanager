@@ -1,0 +1,98 @@
+<ion-view view-title="New payroll">
+
+  <ion-nav-bar class="bar-calm pm-header">
+      <!-- back button, shown if applicable -->
+      <ion-nav-back-button>
+      </ion-nav-back-button>
+      <!-- nav button, shown if applicable -->
+      <ion-nav-buttons side="left">
+        <button class="button button-icon button-clear ion-navicon" menu-toggle="left">
+        </button>
+      </ion-nav-buttons>
+    </ion-nav-bar>
+
+  <ion-content class="has-button">
+
+    <!-- payment type -->
+    <div class="detail-attribute-wrapper">
+      <div class="detail-label-minor">{{strings.PAYMENT_TYPE | uppercase}}:&nbsp;{{employeeData.payment | uppercase}}</div>
+    </div>
+    <!-- default values if payment type === SALARY -->
+    <div ng-if="employeeData.payment === 'salary'" class="payment-type-info">
+      <span>Due to the payment type, default values has been set.</span>
+    </div>
+
+    <!-- content goes here -->
+    <form novalidate name="newPaymentForm" class="new-payment-form">
+      <div class="list list-no-margin">
+
+
+        <!-- salary rate -->
+          <label class="item item-input item-floating-label">
+            <span class="input-label">{{strings.RATE}}</span>
+            <input name="rate" type="number" placeholder="Salary rate" ng-model="payment.rate" required>
+            <span class="error-field" ng-if="newPaymentForm.rate.$dirty && newPaymentForm.rate.$invalid">{{errors.required}}</span>
+          </label>
+
+        <!-- hours worked - if payment type === HOURLY -->
+        <div ng-if="employeeData.payment === 'hourly'">
+          <label class="item item-input item-floating-label">
+            <span class="input-label">Number of hours worked</span>
+            <input name="hours" type="number" placeholder="Number of hours worked" ng-model="payment.hours" required>
+            <span class="error-field" ng-if="newPaymentForm.hours.$dirty && newPaymentForm.hours.$invalid">{{errors.required}}</span>
+          </label>
+        </div>
+
+        <!-- hours worked - if payment type === SALARY -->
+        <div class="item" ng-if="employeeData.payment === 'salary'">
+          <strong>{{strings.HOURS}}:&nbsp;</strong>{{payment.hours}}
+        </div>
+
+        <!-- life annuity checkbox -->
+        <ion-checkbox class="pm-checkbox" ng-model="payment.lifeAnnuity.checked" ng-disabled="employeeData.payment === 'salary'" ng-checked="employeeData.payment === 'salary'">
+          {{strings.LIFE_ANNUITY}}
+        </ion-checkbox>
+
+        <!-- healthcare checkbox -->
+        <ion-checkbox ng-model="payment.healthcare.checked" ng-disabled="employeeData.payment === 'salary'" ng-checked="employeeData.payment === 'salary'">
+          {{strings.HEALTHCARE}}
+        </ion-checkbox>
+
+        <!-- pension checkbox -->
+        <ion-checkbox ng-model="payment.pension.checked" ng-disabled="employeeData.payment === 'salary'" ng-checked="employeeData.payment === 'salary'">
+          {{strings.PENSION}}
+        </ion-checkbox>
+
+        <!-- sickness insurance checkbox -->
+        <ion-checkbox ng-model="payment.sicknessInsurance.checked" ng-disabled="employeeData.payment === 'salary'" ng-checked="employeeData.payment === 'salary'">
+          {{strings.SICKNESS_INSURANCE}}
+        </ion-checkbox>
+
+        <!-- custom payday toggle -->
+        <ion-toggle toggle-class="toggle-assertive" ng-model="customDate" ng-change="customDateVisible()">
+          {{strings.CUSTOM_DATE}}
+        </ion-toggle>
+
+        <!-- payday - without payment type restrictions -->
+        <div ng-if="customDate">
+          <label class="item item-input">
+            <div class="input-label">
+              <strong>{{strings.DATE}}:&nbsp;</strong>
+            </div>
+            <input name="date" type="date" ng-model="payment.date" placeholder="YYYY-MM-DD" min="1900-01-01" max="{{currentDate}}"/>
+          </label>
+        </div>
+
+        <!-- payday - if payment type === SALARY -->
+        <div ng-if="!customDate" class="item" ng-if="employeeData.payment === 'salary'">
+          <strong>{{strings.DATE}}:&nbsp;</strong>{{payment.date}}
+        </div>
+
+      </div>
+      <button class="button button-full button-positive button-create-employee" ng-disabled="newPaymentForm.$invalid" on-touch="openModal()">
+        <span>Create new payroll</span>
+      </button>
+    </form>
+
+  </ion-content>
+</ion-view>

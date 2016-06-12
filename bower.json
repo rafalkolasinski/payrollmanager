@@ -5,7 +5,8 @@
   "dependencies": {
     "localforage": "^1.4.2",
     "angular-localforage": "^1.2.5",
-    "moment": "^2.13.0"
+    "moment": "^2.13.0",
+    "angular-chart.js": "^0.10.2"
   },
   "name": "payroll-manager",
   "private": true

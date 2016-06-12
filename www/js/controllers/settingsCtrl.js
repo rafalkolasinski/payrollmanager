@@ -68,6 +68,8 @@ angular.module('PayrollManager')
 			temp.forEach(function(word) {
 				initials += word.charAt(0).toUpperCase();
 			})
+		} else {
+			initials = username.charAt(0).toUpperCase();
 		}
 
 		return initials;
@@ -76,18 +78,19 @@ angular.module('PayrollManager')
 	$scope.openModal = function(modalName) {
 		var path = '';
 		if(modalName === 'username') {
-			path = '../templates/changeUsernameModal.html';
+			path = 'templates/changeUsernameModal.html';
 		} else if(modalName = 'currency') {
-			path = '../templates/changeCurrencyModal.html';
+			path = 'templates/changeCurrencyModal.html';
 		}
 
 		$ionicModal.fromTemplateUrl(path, {
+			controller: 'settingsCtrl',
 		    scope: $scope,
 		    animation: 'slide-in-up'
 		}).then(function(modal) {
 			if(modalName === 'username') {
 			    $scope.usernameModal = modal;
-			    $scope.usernameModal.show()
+			    $scope.usernameModal.show();
 			} else if(modalName === 'currency') {
 				$scope.currencyModal = modal;
 			    $scope.currencyModal.show();

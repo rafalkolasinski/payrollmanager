@@ -46,6 +46,16 @@ angular.module('PayrollManager')
         },
         cache: false
       })
+      .state('main.newPayment', {
+        url: '/newPayment/',
+        views: {
+          'pageContent': {
+            templateUrl: 'templates/newPayment.html',
+            controller: 'NewPaymentCtrl'
+          }
+        },
+        cache: false
+      })
       .state('main.history', {
         url: '/history',
         views: {

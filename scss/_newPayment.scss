@@ -1,0 +1,56 @@
+.payment-question {
+	@include flex;
+	@include align-center;
+	@include justify-center;
+}
+
+.payment-details {
+	.payment-detail-item {
+		@include flex;
+		@include align-center;
+		@include justify-center;
+		width: 100%;
+		color: $pm_white;
+		border: 0;
+		padding: 0;
+		&.payment-employee {
+			font-size: 21px;
+		}
+	}
+}
+
+.payment-type-info {
+	@include flex;
+	@include justify-center;
+	@include align-center;
+	height: 44px;
+	width: 100%;
+	color: $pm_base;
+	background: none;
+	background-color: $pm_lightwhite;
+}
+
+.new-payment-form {
+	input {
+		width: 100%;
+	}
+}
+
+.button-save {
+	background-color: $pm_accent;
+	color: $pm_white !important;
+	&.activated {
+		background-color: $pm_white;
+		color: $pm_accent;
+		border: 0;
+	}
+}
+
+.pm-checkbox {
+	.checkbox {
+		input:checked:before {
+			background-color: $pm_accent_two;
+			border-color: $pm_accent_two;
+		}
+	}
+}

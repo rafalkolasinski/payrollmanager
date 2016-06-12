@@ -9990,6 +9990,13 @@ a.button {
 .button-set {
   background-color: #FBB100;
   color: #FDFDFD; }
+  .button-set.detail {
+    margin: 0px 0px 16px 0px;
+    background-color: #36B1BF; }
+    .button-set.detail.activated {
+      background-color: #FDFDFD;
+      color: #36B1BF;
+      border: 0; }
 
 .username-input {
   border: 0;
@@ -10197,6 +10204,9 @@ a.button {
 /*
 * EMPLOYEE DETAIL
 */
+.employee-detail-wrapper .detail-header {
+  margin-bottom: 16px; }
+
 .detail-name {
   display: -webkit-box;
   display: -webkit-flex;
@@ -10218,12 +10228,7 @@ a.button {
   padding: 20px;
   border-left: 5px solid #FBB100; }
 
-.detail-attributes-top:first-child,
-.detail-attributes-bottom:first-child {
-  border-bottom: 1px solid #CACACA; }
-
-.detail-attributes-top .detail-attribute-wrapper,
-.detail-attributes-bottom .detail-attribute-wrapper {
+.detail-attribute-wrapper {
   height: 60px;
   display: -webkit-box;
   display: -webkit-flex;
@@ -10235,8 +10240,7 @@ a.button {
   align-items: center;
   font-size: 16px;
   border-bottom: 1px solid #FDFDFD; }
-  .detail-attributes-top .detail-attribute-wrapper .detail-icon,
-  .detail-attributes-bottom .detail-attribute-wrapper .detail-icon {
+  .detail-attribute-wrapper .detail-icon {
     display: -webkit-box;
     display: -webkit-flex;
     display: -ms-flexbox;
@@ -10254,14 +10258,15 @@ a.button {
     font-size: 21px;
     color: #36B1BF;
     border-left: 5px solid #36B1BF; }
-    .detail-attributes-top .detail-attribute-wrapper .detail-icon.top,
-    .detail-attributes-bottom .detail-attribute-wrapper .detail-icon.top {
+    .detail-attribute-wrapper .detail-icon.top {
       border: 0;
       width: 60px;
       color: #FDFDFD;
       background-color: #36B1BF; }
-  .detail-attributes-top .detail-attribute-wrapper .detail-label,
-  .detail-attributes-bottom .detail-attribute-wrapper .detail-label {
+      .detail-attribute-wrapper .detail-icon.top.activated {
+        background-color: #FDFDFD;
+        color: #36B1BF; }
+  .detail-attribute-wrapper .detail-label {
     display: -webkit-box;
     display: -webkit-flex;
     display: -ms-flexbox;
@@ -10277,11 +10282,9 @@ a.button {
     font-size: 16px;
     color: #21192E;
     border-left: 1px solid #DDDDDD; }
-    .detail-attributes-top .detail-attribute-wrapper .detail-label.top,
-    .detail-attributes-bottom .detail-attribute-wrapper .detail-label.top {
+    .detail-attribute-wrapper .detail-label.top {
       width: calc(100vw - 60px); }
-  .detail-attributes-top .detail-attribute-wrapper .detail-label-minor,
-  .detail-attributes-bottom .detail-attribute-wrapper .detail-label-minor {
+  .detail-attribute-wrapper .detail-label-minor {
     display: -webkit-box;
     display: -webkit-flex;
     display: -ms-flexbox;
@@ -10316,7 +10319,11 @@ a.button {
   -webkit-justify-content: center;
   -ms-flex-pack: center;
   justify-content: center;
-  height: 200px; }
+  height: 300px; }
+  .detail-chart .detail-chart-label {
+    color: #ABABAB; }
+  .detail-chart.border {
+    border-left: 5px solid #DDDDDD; }
 
 .has-button .list-no-margin {
   margin: 0; }
@@ -10331,3 +10338,71 @@ a.button {
   position: absolute; }
   .has-button .button-create-employee.activated {
     border: 0; }
+
+.payment-question {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center; }
+
+.payment-details .payment-detail-item {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  width: 100%;
+  color: #FDFDFD;
+  border: 0;
+  padding: 0; }
+  .payment-details .payment-detail-item.payment-employee {
+    font-size: 21px; }
+
+.payment-type-info {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
+  height: 44px;
+  width: 100%;
+  color: #21192E;
+  background: none;
+  background-color: #EAEAEA; }
+
+.new-payment-form input {
+  width: 100%; }
+
+.button-save {
+  background-color: #36B1BF;
+  color: #FDFDFD !important; }
+  .button-save.activated {
+    background-color: #FDFDFD;
+    color: #36B1BF;
+    border: 0; }
+
+.pm-checkbox .checkbox input:checked:before {
+  background-color: #FBB100;
+  border-color: #FBB100; }

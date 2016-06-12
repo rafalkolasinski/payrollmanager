@@ -13,6 +13,8 @@ angular.module('PayrollManager')
 			temp.forEach(function(word) {
 				initials += word.charAt(0).toUpperCase();
 			})
+		} else {
+			initials = username.charAt(0).toUpperCase();
 		}
 
 		return initials;
@@ -20,7 +22,7 @@ angular.module('PayrollManager')
 
 	// Called to navigate to the main app
 	$scope.startApp = function() {
-		if(window.localStorage['didTutorial'] === "false"){
+		if(!window.localStorage.hasOwnProperty('didTutorial') || typeof window.localStorage['didTutorial'] === "undefined" || window.localStorage['didTutorial'] === "false"){
 			username = $scope.user.username;
 
 			//saving username
@@ -47,8 +49,10 @@ angular.module('PayrollManager')
 	};
 
 	// Check if the user already did the tutorial and skip it if so
-	if(window.localStorage['didTutorial'] === "true") {
+	if(window.localStorage.hasOwnProperty('didTutorial') && typeof window.localStorage['didTutorial'] !== "undefined" && window.localStorage['didTutorial'] === "true") {
 		console.log('Skip intro, was already done.');
 		$scope.startApp();
+	} else {
+		window.localStorage['didTutorial'] = false;
 	}
 });

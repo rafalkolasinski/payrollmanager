@@ -100,80 +100,93 @@
 /*
 * EMPLOYEE DETAIL
 */
-// .detail-header {
-	.detail-name {
+.employee-detail-wrapper {
+	.detail-header {
+		margin-bottom: 16px;
+	}
+}
+.detail-name {
+	@include flex;
+	@include justify-center;
+	@include align-center;
+	height: 100px;
+    font-size: 26px;
+    padding: 20px;
+    background-color: $pm_white;
+    color: $pm_accent_two;
+    padding: 20px;
+    border-left: 5px solid $pm_accent_two;
+}
+.detail-attribute-wrapper {
+    height: 60px;
+    @include flex;
+    @include align-center;
+    font-size: 16px;
+    border-bottom: 1px solid $pm_white;
+    .detail-icon {
+	    @include flex;
+		@include justify-center;
+		@include align-center;
+	    height: 100%;
+	    width: 65px;
+	    font-size: 21px;
+	    color: $pm_accent;
+	    border-left: 5px solid $pm_accent;
+	    &.top {
+	    	border: 0;
+	    	width: 60px;
+	    	color: $pm_white;
+	    	background-color: $pm_accent;
+	    	&.activated {
+	    		background-color: $pm_white;
+	    		color: $pm_accent;
+	    	}
+	    }
+	}
+	.detail-label {
+		@include flex;
+		@include align-center;
+		background-color: $pm_lightwhite;
+		padding-left: 16px;
+	    height: 100%;
+        width: calc(100vw - 65px);
+	    font-size: 16px;
+	    color: $pm_base;
+        border-left: 1px solid $pm_lightgray;
+        &.top {
+	        width: calc(100vw - 60px);
+        }
+	}
+	.detail-label-minor {
 		@include flex;
 		@include justify-center;
 		@include align-center;
-		height: 100px;
-	    font-size: 26px;
+		height: 60px;
+		width: 100%;
+	    font-size: 18px;
 	    padding: 20px;
 	    background-color: $pm_white;
 	    color: $pm_accent_two;
 	    padding: 20px;
-	    border-left: 5px solid $pm_accent_two;
+		border-left: 5px solid $pm_accent_two;
 	}
-	.detail-attributes-top,
-	.detail-attributes-bottom, {
-		&:first-child {
-			border-bottom: 1px solid $pm_gray;
-		}
-		.detail-attribute-wrapper {
-		    height: 60px;
-		    @include flex;
-		    @include align-center;
-		    font-size: 16px;
-		    border-bottom: 1px solid $pm_white;
-		    .detail-icon {
-			    @include flex;
-				@include justify-center;
-				@include align-center;
-			    height: 100%;
-			    width: 65px;
-			    font-size: 21px;
-			    color: $pm_accent;
-			    border-left: 5px solid $pm_accent;
-			    &.top {
-			    	border: 0;
-			    	width: 60px;
-			    	color: $pm_white;
-			    	background-color: $pm_accent;
-			    }
-			}
-			.detail-label {
-				@include flex;
-				@include align-center;
-				background-color: $pm_lightwhite;
-				padding-left: 16px;
-			    height: 100%;
-		        width: calc(100vw - 65px);
-			    font-size: 16px;
-			    color: $pm_base;
-		        border-left: 1px solid $pm_lightgray;
-		        &.top {
-			        width: calc(100vw - 60px);
-		        }
-			}
-			.detail-label-minor {
-				@include flex;
-				@include justify-center;
-				@include align-center;
-				height: 60px;
-				width: 100%;
-			    font-size: 18px;
-			    padding: 20px;
-			    background-color: $pm_white;
-			    color: $pm_accent_two;
-			    padding: 20px;
-	    		border-left: 5px solid $pm_accent_two;
-			}
-		}
-	}
-// }
+}
 
 .detail-chart {
 	@include flex;
 	@include align-center;
 	@include justify-center;
-	height: 200px;
+	height: 300px;
+	.detail-chart-label {
+		color: $pm_mediumgray;
+	}
+	&.border {
+		border-left: 5px solid $pm_lightgray;
+	}
+	.chart-container {
+		// canvas {
+		// 	width: 100% !important;
+		// 	height: 200px !important;
+		// }
+	}
 }

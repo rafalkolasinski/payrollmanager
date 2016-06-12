@@ -32,7 +32,7 @@ angular.module('PayrollManager')
 			method: 'GET',
 			url: 'https://api.fixer.io/latest?base=PLN'
 		}).then(function(res) {
-			console.log('Got exchante rates.', res);
+			console.log('Got exchange rates.', res);
 			CurrencyService.setExchangeRates({pln: 1, usd: res.data.rates.USD, eur: res.data.rates.EUR});
 		}, function(err) {
 			console.log('Couldn\'t get exchange rates.', err);

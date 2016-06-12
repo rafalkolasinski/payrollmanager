@@ -13,7 +13,8 @@ angular.module('PayrollManager')
 		lastname: 	'',
 		payment: 	'',
 		phone: 		'',
-		payrolls: 	[]
+		payments: 	[],
+		zipcode: ''
 	};
 
 	$scope.errors = {

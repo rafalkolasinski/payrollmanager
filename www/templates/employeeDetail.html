@@ -16,8 +16,7 @@
     </ion-nav-buttons> -->
   </ion-nav-bar>
 
-  <!-- do you want padding -->
-  <ion-content class="">
+  <ion-content>
     
     <div class="employee-detail-wrapper">
         <div class="detail-header">
@@ -26,18 +25,25 @@
           </div>
           <div class="detail-attributes-top">
             <div class="detail-attribute-wrapper">
-              <div class="detail-icon top"><i class="ion-android-mail"></i></div>
+              <button class="detail-icon top" on-touch="sendEmail()"><i class="ion-android-mail"></i></button>
               <div class="detail-label top">{{employeeData.email}}</div>
             </div>
             <div class="detail-attribute-wrapper">
-              <div class="detail-icon top"><i class="ion-android-phone-portrait"></i></div>
+              <button class="detail-icon top" on-touch="callEmployee()"><i class="ion-android-phone-portrait"></i></button>
               <div class="detail-label top">{{employeeData.phone}}</div>
             </div>
           </div>
         </div>
 
-        <div class="detail-chart">
-          Recent payroll history (chart) will probably be here.
+        <div class="detail-attribute-wrapper">
+          <div class="detail-label-minor">{{strings.PAYMENT_HISTORY | uppercase}}</div>
+        </div>
+        <div class="detail-chart" ng-class="{'border': employeeData.payments.length === 0}">
+          <span class="detail-chart-label" ng-if="employeeData.payments.length === 0">You have no payment history for this employee.</span>
+          <canvas id="line" class="chart chart-bar" ng-if="employeeData.payments.length > 0"  chart-data="chartData.data" chart-labels="chartData.labels" chart-legend="false" chart-series="chartData.series" chart-colours="chartData.colours" height="300"></canvas>
+        </div>
+        <div>
+          <button class="button button-full button-set detail" on-touch="addPayment()">Add new payment</button>
         </div>
         
         <div class="detail-attributes-top">
@@ -49,16 +55,20 @@
             <div class="detail-label">{{employeeData.address}}</div>
           </div>
           <div class="detail-attribute-wrapper">
+            <div class="detail-icon"><i class="ion-android-pin"></i></div>
+            <div class="detail-label">{{employeeData.zipcode}}</div>
+          </div>
+          <div class="detail-attribute-wrapper">
             <div class="detail-icon"><i class="ion-android-map"></i></div>
             <div class="detail-label">{{employeeData.city}}</div>
           </div>
           <div class="detail-attribute-wrapper">
-            <div class="detail-icon"><i class="ion-calendar"></i></div>
-            <div class="detail-label">{{employeeData.birthday | date:shortDate}}</div>
-          </div>
-          <div class="detail-attribute-wrapper">
             <div class="detail-icon"><i class="ion-earth"></i></div>
             <div class="detail-label">{{employeeData.country | uppercase}}</div>
+          </div>
+          <div class="detail-attribute-wrapper">
+            <div class="detail-icon"><i class="ion-calendar"></i></div>
+            <div class="detail-label">{{employeeData.birthday | date:shortDate}}</div>
           </div>
           <div class="detail-attribute-wrapper">
             <div class="detail-icon"><i class="ion-social-usd"></i></div>
