@@ -1,4 +1,4 @@
-<ion-view view-title="History">
+<ion-view view-title="Payment history">
 
 	<ion-nav-bar class="bar-calm pm-header">
       <!-- back button, shown if applicable -->
@@ -11,8 +11,27 @@
       </ion-nav-buttons>
     </ion-nav-bar>
 
-  <!-- do you want padding -->
-  <ion-content class="padding">
-		History section here.
+  <ion-content>
+		<ion-list>
+    
+      <ion-item class="item item-avatar employee-wrapper" ng-repeat="payment in payments | filter:keywords">
+
+        <div class="employee-personal-data payment-history-item">
+          <h2 class="payment-history-title">{{payment.firstname | uppercase}}&nbsp;{{payment.lastname | uppercase}}</h2>
+          <div class="payment-history-details">
+            <div class="payment-history-details-item">
+              <span class="payment-history-icon"><i class="ion-calendar"></i></span>
+              <span>{{payment.date}}</span>
+            </div>
+            <div class="payment-history-details-item">
+              <span class="payment-history-icon"><i class="ion-social-usd"></i></span>
+              <span>{{payment.total}}</span>
+            </div>
+          </div>
+        </div>
+
+      </ion-item>
+
+    </ion-list>
   </ion-content>
 </ion-view>

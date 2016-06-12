@@ -10406,3 +10406,43 @@ a.button {
 .pm-checkbox .checkbox input:checked:before {
   background-color: #FBB100;
   border-color: #FBB100; }
+
+.employee-personal-data.payment-history-item {
+  width: 100%; }
+  .employee-personal-data.payment-history-item .payment-history-title {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+    -webkit-justify-content: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    background-color: #FBB100;
+    color: #FDFDFD;
+    padding: 8px;
+    width: 100%; }
+  .employee-personal-data.payment-history-item .payment-history-details {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+    -webkit-justify-content: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -webkit-flex-direction: column;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    background-color: #EAEAEA;
+    padding: 0px 8px;
+    width: 100%; }
+    .employee-personal-data.payment-history-item .payment-history-details .payment-history-details-item {
+      padding: 8px 0px; }
+    .employee-personal-data.payment-history-item .payment-history-details .payment-history-details-item:first-child {
+      border-bottom: 2px solid #ABABAB; }
+    .employee-personal-data.payment-history-item .payment-history-details .payment-history-icon {
+      font-size: 18px;
+      margin-right: 16px; }

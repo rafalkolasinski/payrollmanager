@@ -54,3 +54,35 @@
 		}
 	}
 }
+
+.employee-personal-data {
+	&.payment-history-item {
+		width: 100%;
+		.payment-history-title {
+			@include flex;
+			@include justify-center;
+		    background-color: $pm_accent_two;
+		    color: $pm_white;
+		    padding: 8px;
+		    width: 100%;
+		}
+		.payment-history-details {
+			@include flex;
+			@include justify-center;
+			@include flex-direction-column;
+			background-color: $pm_lightwhite;
+		    padding: 0px 8px;
+		    width: 100%;
+		    .payment-history-details-item {
+		    	padding: 8px 0px;
+		    }
+		    .payment-history-details-item:first-child {
+			    border-bottom: 2px solid $pm_mediumgray;
+		    }
+		    .payment-history-icon {
+		    	font-size: 18px;
+		    	margin-right: 16px; 
+		    }
+		}
+	}
+}

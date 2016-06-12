@@ -3,6 +3,21 @@ angular.module('PayrollManager')
 .controller('NewPaymentCtrl', function ($scope, $state, $localForage, $ionicModal, EmployeesService) {
 	var local = $localForage;
 	var id = EmployeesService.getRecentId();
+	var payment = {
+		firstname: '',
+		lastname: '',
+		type: '',
+		id: '',
+		date: '',
+		healthcare: '',
+		lifeAnnuity: '',
+		hours: 0,
+		pension: '',
+		rate: 0,
+		sicknessInsurance: '',
+		total: 0
+	};
+	$scope.recentPayments = [];
 
 	$scope.currentDate = moment().format('YYYY-MM-DD');
 	$scope.customDate = false;
@@ -59,6 +74,16 @@ angular.module('PayrollManager')
 	var taxRatesKeys = Object.keys($scope.taxRates);
 
 	console.log($scope.payment);
+
+	$scope.checkRecentList = function() {
+		if(!localStorage['pm/employees/recentPayments'] || typeof localStorage['pm/employees/recentPayments'] === 'undefined') {
+			local.setItem('recentPayments', list).then(function(value) {
+				console.log('Set empty recent payments list.', value);
+			}).catch(function(err) {
+				console.log('Couldn\'t create new recent payments list.');
+			})
+		}
+	}
 
 	$scope.calcTotal = function() {
 			var total = 0;
@@ -152,8 +177,47 @@ angular.module('PayrollManager')
 		}
 	}
 
+	$scope.saveRecentPayment = function(obj) {
+		var payment = obj;
+		var list = [];
+
+		if(localStorage['pm/employees/recentPayments'].length === 0) {
+			list.push(JSON.parse(localStorage.getItem('pm/employees/recentPayments')));
+			localStorage.setItem('pm/employees/recentPayments', JSON.stringify(list));
+		} else {
+			list = JSON.parse(localStorage.getItem('pm/employees/recentPayments'));
+			list.push(payment);
+			alert(list);
+
+			local.setItem('recentPayments', list).then(function(value) {
+				console.log('Successfully pushed new payment to recent payments list.', value);
+			}).catch(function(err) {
+				console.log('Couldn\'t save new payment to recent payments list.');
+			});
+		}
+
+	}
+
 	$scope.savePayment = function() {
+		payment = {
+			firstname: 			$scope.employeeData.firstname,
+			lastname: 			$scope.employeeData.lastname,
+			type: 				$scope.employeeData.payment,
+			id: 				$scope.employeeData.id,
+			date: 				$scope.payment.date,
+			healthcare: 		$scope.payment.healthcare.value,
+			lifeAnnuity: 		$scope.payment.lifeAnnuity.value,
+			hours: 				$scope.payment.hours,
+			pension: 			$scope.payment.pension.value,
+			rate: 				$scope.payment.rate,
+			sicknessInsurance: 	$scope.payment.sicknessInsurance.value,
+			total: 				$scope.payment.total
+		}
+
+		$scope.saveRecentPayment(payment);
+
 		$scope.employeeData.payments.push($scope.payment);
+		$scope.recentPayments.push($scope.payment);
 
 		local.setItem(id, $scope.employeeData).then(function(value) {
 			console.log('Successfully saved payment.', value);
@@ -166,6 +230,7 @@ angular.module('PayrollManager')
 	}
 
 	$scope.init = function() {
+		$scope.checkRecentList();
 		$scope.getEmployeeData();
 	}
 
