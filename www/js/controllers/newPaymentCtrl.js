@@ -76,6 +76,7 @@ angular.module('PayrollManager')
 	console.log($scope.payment);
 
 	$scope.checkRecentList = function() {
+		var list = [];
 		if(!localStorage['pm/employees/recentPayments'] || typeof localStorage['pm/employees/recentPayments'] === 'undefined') {
 			local.setItem('recentPayments', list).then(function(value) {
 				console.log('Set empty recent payments list.', value);

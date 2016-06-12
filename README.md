@@ -3,6 +3,13 @@ Payroll Manager is an app for small/medium-sized companies that want to easily m
 
 Runs on iOS/Android/Windows Phone using AngularJS/Ionic/Cordova JS frameworks.
 
+### Installation & testing
+1. Run `npm install` to install server dependencies.
+
+2. Run `bower install` to install front-end dependencies.
+
+3. Run `ionic serve` to start the development server. It should automatically open the client in your browser when ready.
+
 ### What's in the box
 
 <p align="center">
