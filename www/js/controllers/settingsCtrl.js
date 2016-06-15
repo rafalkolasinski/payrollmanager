@@ -50,11 +50,11 @@ angular.module('PayrollManager')
 	});
 
 	$scope.hideModal = function() {
-		if(typeof $scope.usernameModal !== 'undefined') {
+		if($scope.usernameModal && typeof $scope.usernameModal !== 'undefined') {
 			$scope.usernameModal.hide().then(function() {
 		    	$scope.usernameModal = null;
 		    });
-		} else if(typeof $scope.currencyModal !== 'undefined') {
+		} else if($scope.currencyModal && typeof $scope.currencyModal !== 'undefined') {
 			$scope.currencyModal.hide().then(function() {
 		    	$scope.currencyModal = null;
 		    });

@@ -190,3 +190,28 @@
 		// }
 	}
 }
+
+.history-items {
+	.item-content {
+		padding: 0;
+	}
+	.button-history-detail {
+		@include flex;
+		@include justify-center;
+		@include align-center;
+		background-color: $pm_accent;
+		.history-icon {
+			font-size: 24px;
+		}
+		&.activated {
+			background-color: $pm_lightgray;
+			color: $pm_base;
+		}
+	}
+}
+
+.payment-detail-modal {
+	.button-save {
+		margin: 0;
+	}
+}

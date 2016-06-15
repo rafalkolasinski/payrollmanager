@@ -65,6 +65,9 @@
 		    color: $pm_white;
 		    padding: 8px;
 		    width: 100%;
+		    &:activated {
+		    	background-color: $pm_accent;
+		    }
 		}
 		.payment-history-details {
 			@include flex;

@@ -14,7 +14,7 @@
   <ion-content>
 		<ion-list>
     
-      <ion-item class="item item-avatar employee-wrapper" ng-repeat="payment in payments | filter:keywords">
+      <ion-item class="item item-avatar employee-wrapper history-items" ng-repeat="payment in payments | filter:keywords">
 
         <div class="employee-personal-data payment-history-item">
           <h2 class="payment-history-title">{{payment.firstname | uppercase}}&nbsp;{{payment.lastname | uppercase}}</h2>
@@ -25,7 +25,12 @@
             </div>
             <div class="payment-history-details-item">
               <span class="payment-history-icon"><i class="ion-social-usd"></i></span>
-              <span>{{payment.total}}</span>
+              <span>
+                <span ng-if="currency === '$'">{{currency}}</span>
+                <span>{{payment.total}}</span>
+                <span ng-if="currency === 'PLN' || currency === '€'">{{currency}}</span>
+              <ion-option-button class="button-assertive button-history-detail"  ng-click="openPaymentDetailModal(payment.paymentId)"><span class="history-icon"><i class="ion-clipboard"></i><span></ion-option-button>
+              </span>
             </div>
           </div>
         </div>

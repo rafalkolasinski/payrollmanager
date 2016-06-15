@@ -10325,6 +10325,32 @@ a.button {
   .detail-chart.border {
     border-left: 5px solid #DDDDDD; }
 
+.history-items .item-content {
+  padding: 0; }
+
+.history-items .button-history-detail {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
+  background-color: #36B1BF; }
+  .history-items .button-history-detail .history-icon {
+    font-size: 24px; }
+  .history-items .button-history-detail.activated {
+    background-color: #DDDDDD;
+    color: #21192E; }
+
+.payment-detail-modal .button-save {
+  margin: 0; }
+
 .has-button .list-no-margin {
   margin: 0; }
 
@@ -10422,6 +10448,8 @@ a.button {
     color: #FDFDFD;
     padding: 8px;
     width: 100%; }
+    .employee-personal-data.payment-history-item .payment-history-title:activated {
+      background-color: #36B1BF; }
   .employee-personal-data.payment-history-item .payment-history-details {
     display: -webkit-box;
     display: -webkit-flex;

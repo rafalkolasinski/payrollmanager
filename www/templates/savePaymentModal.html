@@ -32,7 +32,11 @@
 					</div> -->
 					<div class="detail-attribute-wrapper">
 			        	<div class="detail-icon"><i class="ion-social-usd"></i></div>
-			        	<div class="detail-label">{{payment.total}}&nbsp;PLN</div>
+			        	<div class="detail-label">
+			        		<span ng-if="currency === '$'">{{currency}}</span>
+			        		<span>{{payment.total}}&nbsp;</span>
+			        		<span ng-if="currency === 'PLN' || currency === '€'">{{currency}}</span>
+		        		</div>
 			        </div>
 				</ion-item>
 				<ion-item>

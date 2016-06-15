@@ -12,6 +12,7 @@ angular.module('PayrollManager')
 		healthcare: '',
 		lifeAnnuity: '',
 		hours: 0,
+		paymentId: '',
 		pension: '',
 		rate: 0,
 		sicknessInsurance: '',
@@ -69,6 +70,22 @@ angular.module('PayrollManager')
 		},
 		total: ''
 	}
+
+	$scope.currency = '';
+	$scope.currencies = [
+		{
+			name: '$',
+			value: 'usd'
+		},
+		{
+			name: 'PLN', 
+			value: 'pln'
+		},
+		{
+			name: '€',
+			value: 'eur'
+		}
+	];
 
 	var paymentKeys = Object.keys($scope.payment);
 	var taxRatesKeys = Object.keys($scope.taxRates);
@@ -188,7 +205,6 @@ angular.module('PayrollManager')
 		} else {
 			list = JSON.parse(localStorage.getItem('pm/employees/recentPayments'));
 			list.push(payment);
-			alert(list);
 
 			local.setItem('recentPayments', list).then(function(value) {
 				console.log('Successfully pushed new payment to recent payments list.', value);
@@ -199,20 +215,45 @@ angular.module('PayrollManager')
 
 	}
 
+	$scope.generatePaymentID = function() {
+		var id = '';
+		id = Math.random().toString(36).substring(2, 18).toUpperCase();
+		return id;
+	};
+
 	$scope.savePayment = function() {
-		payment = {
-			firstname: 			$scope.employeeData.firstname,
-			lastname: 			$scope.employeeData.lastname,
-			type: 				$scope.employeeData.payment,
-			id: 				$scope.employeeData.id,
-			date: 				$scope.payment.date,
-			healthcare: 		$scope.payment.healthcare.value,
-			lifeAnnuity: 		$scope.payment.lifeAnnuity.value,
-			hours: 				$scope.payment.hours,
-			pension: 			$scope.payment.pension.value,
-			rate: 				$scope.payment.rate,
-			sicknessInsurance: 	$scope.payment.sicknessInsurance.value,
-			total: 				$scope.payment.total
+		if($scope.employeeData.payment === 'hourly') {
+			payment = {
+				firstname: 			$scope.employeeData.firstname,
+				lastname: 			$scope.employeeData.lastname,
+				type: 				$scope.employeeData.payment,
+				id: 				$scope.employeeData.id,
+				date: 				$scope.payment.date,
+				healthcare: 		$scope.payment.healthcare.value,
+				lifeAnnuity: 		$scope.payment.lifeAnnuity.value,
+				hours: 				$scope.payment.hours,
+				paymentId: 			$scope.generatePaymentID(),
+				pension: 			$scope.payment.pension.value,
+				rate: 				$scope.payment.rate,
+				sicknessInsurance: 	$scope.payment.sicknessInsurance.value,
+				total: 				$scope.payment.total
+			}
+		} else if($scope.employeeData.payment === 'salary') {
+			payment = {
+				firstname: 			$scope.employeeData.firstname,
+				lastname: 			$scope.employeeData.lastname,
+				type: 				$scope.employeeData.payment,
+				id: 				$scope.employeeData.id,
+				date: 				$scope.payment.date,
+				healthcare: 		($scope.payment.total * $scope.taxRates.healthcare).toFixed(2),
+				lifeAnnuity: 		($scope.payment.total * $scope.taxRates.lifeAnnuity).toFixed(2),
+				hours: 				$scope.payment.hours,
+				paymentId: 			$scope.generatePaymentID(),
+				pension: 			($scope.payment.total * $scope.taxRates.pension).toFixed(2),
+				rate: 				$scope.payment.rate,
+				sicknessInsurance: 	($scope.payment.total * $scope.taxRates.sicknessInsurance).toFixed(2),
+				total: 				$scope.payment.total
+			}
 		}
 
 		$scope.saveRecentPayment(payment);
@@ -230,9 +271,25 @@ angular.module('PayrollManager')
 		console.log('lols')
 	}
 
+	$scope.getCurrency = function() {
+		local.getItem('currency').then(function(data) {
+			if(data === 'usd') {
+				$scope.currency = $scope.currencies[0].name;
+			} else if(data === 'pln') {
+				$scope.currency = $scope.currencies[1].name;
+			} else if(data === 'eur') {
+				$scope.currency = $scope.currencies[2].name;
+			}
+			console.log('Successfully got currency.', $scope.currency);
+		}).catch(function(err) {
+			console.log('Couldn\'t get currency.', err);
+		})
+	}
+
 	$scope.init = function() {
 		$scope.checkRecentList();
 		$scope.getEmployeeData();
+		$scope.getCurrency();
 	}
 
 	//initializing the controller to get data

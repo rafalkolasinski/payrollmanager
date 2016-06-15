@@ -1,0 +1,114 @@
+<ion-modal-view>
+	<ion-header-bar class="bar bar-header pm-header">
+		<h1 class="title">Payment detail</h1>
+	</ion-header-bar>
+	
+	<ion-content class="payment-detail-modal">
+		<div class="detail-attribute-wrapper">
+          <div class="detail-label-minor">{{paymentDetail.firstname | uppercase}}&nbsp;{{paymentDetail.lastname | uppercase}}</div>
+        </div>
+		<ion-list>
+			<div class="list payment-details">
+				<ion-item class="payment-detail-item">
+					<div class="detail-attribute-wrapper">
+			        	<div class="detail-icon"><i class="ion-information-circled"></i></div>
+			        	<div class="detail-label">
+			        		<span>{{paymentDetail.type | uppercase}}</span>
+		        		</div>
+			        </div>
+				</ion-item>
+
+				<ion-item class="payment-detail-item">
+					<div class="detail-attribute-wrapper">
+			        	<div class="detail-icon"><i class="ion-calendar"></i></div>
+			        	<div class="detail-label">{{paymentDetail.date}}</div>
+			        </div>
+				</ion-item>
+
+				<ion-item class="payment-detail-item">
+					<div class="detail-attribute-wrapper">
+			        	<div class="detail-icon"><i class="ion-android-time"></i></div>
+			        	<div class="detail-label">
+			        		<span>{{paymentDetail.hours}}h</span>
+		        		</div>
+			        </div>
+				</ion-item>
+
+				<ion-item class="payment-detail-item">
+					<div class="detail-attribute-wrapper">
+			        	<div class="detail-icon"><i class="ion-connection-bars"></i></div>
+			        	<div class="detail-label">
+			        		<span ng-if="currency === '$'">{{currency}}</span>
+			        		<span>{{paymentDetail.rate}}/h</span>
+			        		<span ng-if="currency === 'PLN' || currency === '€'">{{currency}}</span>
+		        		</div>
+			        </div>
+				</ion-item>
+
+				<ion-item class="payment-detail-item">
+					<div class="detail-attribute-wrapper">
+			        	<div class="detail-icon"><i class="ion-social-usd"></i></div>
+			        	<div class="detail-label">
+			        		<span ng-if="currency === '$'">{{currency}}</span>
+			        		<span>{{paymentDetail.total}}</span>
+			        		<span ng-if="currency === 'PLN' || currency === '€'">{{currency}}</span>
+		        		</div>
+			        </div>
+				</ion-item>
+
+				<div class="detail-attribute-wrapper">
+		        	<div class="detail-label-minor">{{strings.TAX_DETAILS | uppercase}}</div>
+		        </div>
+		        <ion-item class="payment-detail-item">
+					<div class="detail-attribute-wrapper">
+			        	<div class="detail-icon"><i class="ion-plus"></i></div>
+			        	<div class="detail-label">
+			        		<span ng-if="paymentDetail.healthcare && currency === '$'">{{currency}}</span>
+			        		<span ng-if="paymentDetail.healthcare !== ''"><!-- {{strings.HEALTHCARE}}&nbsp; -->{{paymentDetail.healthcare}}</span>
+			        		<span ng-if="paymentDetail.healthcare && currency === 'PLN' || currency === '€'">{{currency}}</span>
+			        		<span ng-if="!paymentDetail.healthcare"><!-- {{strings.HEALTHCARE}}&nbsp; -->{{strings.NOT_AVAILABLE}}</span>
+		        		</div>
+			        </div>
+				</ion-item>
+				<ion-item class="payment-detail-item">
+					<div class="detail-attribute-wrapper">
+			        	<div class="detail-icon"><i class="ion-pie-graph"></i></div>
+			        	<div class="detail-label">
+			        		<span ng-if="paymentDetail.healthcare && currency === '$'">{{currency}}</span>
+			        		<span ng-if="paymentDetail.lifeAnnuity !== ''"><!-- {{strings.LIFE_ANNUITY}}&nbsp; -->{{paymentDetail.lifeAnnuity}}</span>
+			        		<span ng-if="paymentDetail.healthcare && currency === 'PLN' || currency === '€'">{{currency}}</span>
+			        		<span ng-if="!paymentDetail.lifeAnnuity"><!-- {{strings.LIFE_ANNUITY}}&nbsp; -->{{strings.NOT_AVAILABLE}}</span>
+		        		</div>
+			        </div>
+				</ion-item>
+				<ion-item class="payment-detail-item">
+					<div class="detail-attribute-wrapper">
+			        	<div class="detail-icon"><i class="ion-clock"></i></div>
+			        	<div class="detail-label">
+			        		<span ng-if="paymentDetail.healthcare && currency === '$'">{{currency}}</span>
+			        		<span ng-if="paymentDetail.pension !== ''"><!-- {{strings.PENSION}}&nbsp; -->{{paymentDetail.pension}}</span>
+			        		<span ng-if="paymentDetail.healthcare && currency === 'PLN' || currency === '€'">{{currency}}</span>
+			        		<span ng-if="!paymentDetail.pension">{{strings.NOT_AVAILABLE}}</span>
+		        		</div>
+			        </div>
+				</ion-item>
+				<ion-item class="payment-detail-item">
+					<div class="detail-attribute-wrapper">
+			        	<div class="detail-icon"><i class="ion-medkit"></i></div>
+			        	<div class="detail-label">
+			        		<span ng-if="paymentDetail.healthcare && currency === '$'">{{currency}}</span>
+			        		<span ng-if="paymentDetail.sicknessInsurance !== ''"><!-- {{strings.SICKNESS_INSURANCE}}&nbsp; -->{{paymentDetail.sicknessInsurance}}</span>
+			        		<span ng-if="paymentDetail.healthcare && currency === 'PLN' || currency === '€'">{{currency}}</span>
+			        		<span ng-if="!paymentDetail.sicknessInsurance"><!-- {{strings.SICKNESS_INSURANCE}}&nbsp; -->{{strings.NOT_AVAILABLE}}</span>
+		        		</div>
+			        </div>
+				</ion-item>
+			</div>
+		</ion-list>
+
+	    <button class="button button-full button-save" ng-click="hideModal()">
+			<span>Close</span>
+		</button>
+
+	</ion-content>
+</ion-modal-view>
